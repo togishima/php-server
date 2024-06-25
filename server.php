@@ -12,6 +12,8 @@ while (true) {
         $header = "HTTP/1.1 200 OK\nContent-Type: text/html\nServer: OreOrePHPServer/0.1\n\n";
         $content = file_get_contents('./public/' . $m[1]);
         $res = $header . $content;
+    } else {
+        $res = "HTTP/1.1 404 Not Found\nContent-Type: text/html\nServer: OreOrePHPServer/0.1\n\nPage not found";
     }
     socket_write($client, $res);
     socket_close($client);
